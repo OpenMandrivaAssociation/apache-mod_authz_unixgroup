@@ -21,7 +21,7 @@ Requires(pre):  apache >= %{apache_version}
 Requires:	apache-conf >= %{apache_version}
 Requires:	apache >= %{apache_version}
 BuildRequires:  apache-devel >= %{apache_version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Mod_Authz_Unixgroup is a unix group access control modules for Apache 2.1 and
