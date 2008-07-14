@@ -7,7 +7,7 @@
 Summary:	Apache Unix Group Access Control Modules
 Name:		apache-%{mod_name}
 Version:	1.0.0
-Release:	%mkrel 6
+Release:	%mkrel 7
 Group:		System/Servers
 License:	Apache License
 URL:		http://unixpapa.com/mod_authz_unixgroup/
