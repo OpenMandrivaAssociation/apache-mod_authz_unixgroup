@@ -6,13 +6,13 @@
 
 Summary:	Apache Unix Group Access Control Modules
 Name:		apache-%{mod_name}
-Version:	1.0.0
-Release:	%mkrel 7
+Version:	1.0.1
+Release:	%mkrel 1
 Group:		System/Servers
 License:	Apache License
 URL:		http://unixpapa.com/mod_authz_unixgroup/
-Source0:	http://www.unixpapa.com/software/%{mod_name}-%{version}.tar.bz2
-Source1:	%{mod_conf}.bz2
+Source0:	http://www.unixpapa.com/software/%{mod_name}-%{version}.tar.gz
+Source1:	%{mod_conf}
 Requires:	pwauth
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
@@ -38,21 +38,21 @@ chmod 644 CHANGES INSTALL README
 
 rm -rf .libs
 
+cp %{SOURCE1} %{mod_conf}
+
+
 %build
 
 %{_sbindir}/apxs -c %{mod_name}.c
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/apache-extramodules
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 
 install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache-extramodules/
-bzcat %{SOURCE1} > %{buildroot}%{_sysconfdir}/httpd/modules.d/%{mod_conf}
-
-install -d %{buildroot}%{_var}/www/html/addon-modules
-ln -s ../../../..%{_docdir}/%{name}-%{version} %{buildroot}%{_var}/www/html/addon-modules/%{name}-%{version}
+install -m0644 %{mod_conf} %{buildroot}%{_sysconfdir}/httpd/modules.d/%{mod_conf}
 
 %post
 if [ -f %{_var}/lock/subsys/httpd ]; then
@@ -67,13 +67,12 @@ if [ "$1" = "0" ]; then
 fi
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc CHANGES INSTALL README
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/%{mod_conf}
 %attr(0755,root,root) %{_libdir}/apache-extramodules/%{mod_so}
-%{_var}/www/html/addon-modules/*
 
 
