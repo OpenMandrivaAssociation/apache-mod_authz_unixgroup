@@ -6,12 +6,12 @@
 
 Summary:	Apache Unix Group Access Control Modules
 Name:		apache-%{mod_name}
-Version:	1.0.1
-Release:	%mkrel 2
+Version:	1.0.2
+Release:	%mkrel 1
 Group:		System/Servers
 License:	Apache License
-URL:		http://unixpapa.com/mod_authz_unixgroup/
-Source0:	http://www.unixpapa.com/software/%{mod_name}-%{version}.tar.gz
+URL:		http://code.google.com/p/mod-auth-external/wiki/ModAuthzUnixGroup
+Source0:	http://mod-auth-external.googlecode.com/files/%{mod_name}-%{version}.tar.gz
 Source1:	%{mod_conf}
 Requires:	pwauth
 Requires(pre): rpm-helper
