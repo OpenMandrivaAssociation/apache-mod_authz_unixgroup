@@ -7,7 +7,7 @@
 Summary:	Apache Unix Group Access Control Modules
 Name:		apache-%{mod_name}
 Version:	1.0.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Servers
 License:	Apache License
 URL:		http://code.google.com/p/mod-auth-external/wiki/ModAuthzUnixGroup
