@@ -10,7 +10,7 @@ Version:	1.1.0
 Release:	2
 Group:		System/Servers
 License:	Apache License
-URL:		http://code.google.com/p/mod-auth-external/wiki/ModAuthzUnixGroup
+URL:		https://code.google.com/p/mod-auth-external/wiki/ModAuthzUnixGroup
 Source0:	http://mod-auth-external.googlecode.com/files/%{mod_name}-%{version}.tar.gz
 Source1:	%{mod_conf}
 Requires:	pwauth
